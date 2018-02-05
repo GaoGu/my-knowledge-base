@@ -1,9 +1,22 @@
 ### css概念
 css指层叠样式表(Cascading Style Sheets)(级联样式表)
+### 书写位置
+内嵌式
+★内嵌式写法，样式只作用于当前文件，没有真正实现结构表现分离。
 
-	<style type="text/css">
+	<head>
+		<style type="text/css">
+	
+		</style>
+	</head>
+外链式
+★外链式写法，作用范围是当前站点，谁调用谁生效，范围广，真正实现结构表现分离。
 
-	</style>
+	<link rel=”stylesheet” href=”1.css”>
+行内样式表
+★行内样式表，作用范围仅限于当前标签，范围小，结构表现混在一起。
+
+	<div style="color:red"></div>
 
 ## 基础选择器
 ### 标签选择器
@@ -94,4 +107,123 @@ escape("微软雅黑")
 
 	Font:italic 700 16px/40px  微软雅黑;
 
+## 元素显示方式
+### 块元素
+典型：`div,h1-h6,p,ul,li`
+特点: 
+	1. 独占一行
+	2. 可以设置宽高
+	2. 嵌套（包含）下，子块元素宽度（没有定义情况下）和父块元素宽度默认一致
+### 行内元素
+典型:`span,a,strong,em,del,ins`
+特点：
+	1. 在一行上显示
+	2. 不能直接设置宽高
+	3. 元素的宽和高就是内容撑开的宽高
+### 行内块元素
+典型：`input img`
+特点:
+	1. 在一行显示
+	2. 可以设置宽高
+### 块元素、行内元素
 
+	//块转行
+	div,p{
+		display:inline;
+	}
+	//行转块
+	span{
+		display:block;
+	}
+	//块和行内转行内块
+	div,a,span{
+		display:inline-block;
+	}
+	//行内块转块元素
+	input{
+		display:block;
+	}
+	行内块转行内元素，经我测试不生效	
+## css三大特性
+### 层叠性
+当多个样式作用于同一个（同一类）标签时，样式发生了冲突，总是执行后边的代码(后边代码层叠前边的代码)。
+### 继承性
+	继承性发生的前提是包含（嵌套关系）
+
+	文字的所有属性都可以继承。
+
+	特殊情况：
+	h系列不能继承文字大小。
+	a标签不能继承文字颜色。
+### 优先级
+	
+	默认样式
+	0
+	标签选择器
+	1
+	类选择器
+	10
+	id选择器
+	100
+	行内样式
+	1000
+	!important
+	1000以上
+特点
+
+	继承的权重为0
+	权重会叠加
+### 链接伪类
+	/*未访问的*/
+	a:link{
+		color:red;
+	}
+	/*访问后的*/
+	a:visited{
+		color:green;
+	}
+	/*鼠标滑过*/
+	a:hover{
+		color:yellow;
+	}
+	/*选中的链接，正在点击的*/
+	a:active{
+		color:pink;
+	}
+注意： 在CSS定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
+注意： 在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。
+
+	/*获取焦点时的样式*/
+	input:focus{ 
+	background-color:yellow;
+	}
+### 文本修饰
+	
+	text-decoration: 
+	none  默认样式  
+	underline 下划线   
+    line-through 穿过文本的线
+### 背景属性
+
+background-color 背景颜色
+background-image 背景图片
+background-repeat :	背景平铺
+
+	repeat 背景图像将向垂直和水平方向重复。这是默认
+	no-repeat 不重复|repeat-x 水平重复|repeat-y 垂直重复
+background-position: 背景定位
+
+	left  |  right  |  center  |  top  | bottom 
+	方位值只写一个的时候，另外一个值默认居中。
+	20px 30px;
+	写2个具体值的时候，第一个值代表水平方向，第二个值代表垂直方向。
+	只写一个另一个默认50%，可以混合使用
+background-attachment:背景是否滚动
+	
+	scroll 背景图片随页面的其余部分滚动。这是默认
+	fixed 背景图像是固定的
+
+背景属性连写
+	
+	background:red url("1.png") no-repeat 30px 40px scroll;
+连写的时候没有顺序要求，url为必写项。
