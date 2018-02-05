@@ -174,6 +174,8 @@ src 设置音乐路径 hidden 隐藏播放按钮 true隐藏 false显示
 ## 字符编码
 
 	Ascll Ansi Unicode Gbk GB2321 Big5 utf-8（通用编码）
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
 ## meta 
 
 	<!-- 指定网页关键字 - 用于告诉搜索引擎网页内容相关关键词。 -->
