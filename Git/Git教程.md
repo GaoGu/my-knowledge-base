@@ -41,6 +41,11 @@
 提交所有文件
 
 	git add . 
+
+如果你觉得 git add 提交缓存的流程太过繁琐，Git 也允许你用 -a 选项跳过这一步。命令格式如下：
+
+	git commit -a -m ""
+
 如果你没有设置 -m 选项，Git 会尝试为你打开一个编辑器以填写提交信息。 如果 Git 在你对它的配置中找不到相关信息，默认会打开 vim。屏幕会像这样：
 
 	# Please enter the commit message for your changes. Lines starting
@@ -54,9 +59,6 @@
 	~
 	~
 	".git/COMMIT_EDITMSG" 9L, 257C
-如果你觉得 git add 提交缓存的流程太过繁琐，Git 也允许你用 -a 选项跳过这一步。命令格式如下：
-
-	git commit -a
 #### 查看工作区的状态
 
 	$ git status

@@ -227,3 +227,7 @@ background-attachment:背景是否滚动
 	
 	background:red url("1.png") no-repeat 30px 40px scroll;
 连写的时候没有顺序要求，url为必写项。
+
+## 行高
+
+## 盒子模型
