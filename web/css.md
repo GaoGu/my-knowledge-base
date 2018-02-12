@@ -255,4 +255,31 @@ background-attachment:背景是否滚动
 	子元素行高以像素为单位，就是定义的行高值。
 ◆推荐行高使用像素为单位。
 ## 盒子模型
+### 边框 border
+border-top-style
 
+	solid 实线 dotted 点线 dashed 虚线
+border-top-color 边框颜色
+border-top-width 边框粗细
+### 边框属性连写
+没有顺序，style为必写项
+### 边框合并 border-collapse
+### 表单控件边框
+
+outline-style:none   取消轮廓线
+:focus 获取鼠标光标焦点
+	
+	input:focus{}
+取消表单边框
+
+	border:0 none; 兼容性好
+label标签
+
+	<label for="ID名"> 友好性好
+### 内边距
+
+#### padding连写
+padding:20px; 上下左右内边距都是20px
+padding:20px 30px; 上下20px 左右30px
+padding：20px 30px 40px; 上内边距为20px 左右内边距为30px 下内边距为40px
+padding：20px 30px 40px 50px
