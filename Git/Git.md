@@ -254,4 +254,5 @@ Git用`<<<<<<<，=======，>>>>>>>`标记出不同分支的内容
 #### lock
 fatal: Unable to create 'E:/workspaceGit/Git/.git/index.lock': File exists.
 解决方法
-rm -f  /.git/index.lock'
+rm -f  /.git/index.lock
+或者手动找到E:/workspaceGit/Git/.git/index.lock文件并删除
