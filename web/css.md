@@ -266,8 +266,11 @@ border-top-width 边框粗细
 ### 边框合并 border-collapse
 ### 表单控件边框
 
-outline-style:none   取消轮廓线
-:focus 获取鼠标光标焦点
+	outline-style:none   
+取消轮廓线
+
+	:focus 
+获取鼠标光标焦点
 	
 	input:focus{}
 取消表单边框
@@ -278,8 +281,28 @@ label标签
 	<label for="ID名"> 友好性好
 ### 内边距
 
+	padding-left|right|top|bottom
 #### padding连写
 padding:20px; 上下左右内边距都是20px
 padding:20px 30px; 上下20px 左右30px
 padding：20px 30px 40px; 上内边距为20px 左右内边距为30px 下内边距为40px
 padding：20px 30px 40px 50px
+
+#### 盒子的宽度=定义的宽度+边框宽度+左右内边距
+#### 继承的盒子一般不会被撑大
+包含（嵌套）的盒子，如果子盒子没有定义宽度，给子盒子设置左右内边距，一般不会撑大盒子。
+#### 外边距
+	margin-left|right|top|bottom
+#### 外边距连写
+margin:20px; 上下左右20
+margin:20px 30px; 上下20 左右30
+margin:20px 30px 40px; 上20 左右30 下40 
+margin:20px 30px 40px 50px; 上20 右30 下40 左50
+#### 垂直方向外边距合并
+两个盒子垂直一个设置上外边距，一个设置下外边距，取的设置较大的值。
+#### 嵌套的盒子外边距塌陷
+解决方法:
+  
+		1 给父盒子设置边框
+        2 给父盒子overflow:hidden;
+

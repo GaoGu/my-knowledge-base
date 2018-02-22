@@ -251,4 +251,7 @@ Git用`<<<<<<<，=======，>>>>>>>`标记出不同分支的内容
 让Git显示颜色
 	
 	$ git config --global color.ui true
-	
+#### lock
+fatal: Unable to create 'E:/workspaceGit/Git/.git/index.lock': File exists.
+解决方法
+rm -f  /.git/index.lock'
