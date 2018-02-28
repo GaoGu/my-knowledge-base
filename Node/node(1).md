@@ -114,34 +114,13 @@ nvm下载的是二进制版本
 
 ### 基本命令
 
-- `dir` directory 列出当前目录下所有的条目
-  + 别名 `ls` 在 powershell 中可以使用
-- `cd` change directory 切换目录
-
-```
-切换到当前目录下的 Desktop 目录
-当想切换到当前目录的时候，最好使用 cd ./ 相对路径的形式
-C:\Users\iroc>cd Desktop
-C:\Users\iroc\Desktop>
-
-在Windows 上切换盘符：
-`d:`
-
-切换绝对路径之后再同一个盘符下才有效
-
-切换到上一级目录
-C:\Users\iroc\Desktop\code\seajs>cd ../
-C:\Users\iroc\Desktop\code>
-
-连续进入多级目录
-C:\Users\iroc\Desktop\code>cd seajs/a
-C:\Users\iroc\Desktop\code\seajs\a>
-```
-
-- `cls` clear screen 清屏
-  + 别名 clear 在widnows中的 `powershell` 中可以使用
-
- windows下的寻址用\反斜杠 
+	cd（change directory）切换目录
+	md（make directory）新建目录
+	rd（remove directory）删除非空目录
+	dir（directory）查看目录中的条目
+	ren（rename）重命名文件
+	del（delete）删除文件
+	cls（clear screen）清屏
 ### path 环境变量
 
 目的是为了在控制台中的任何目录都可以快速打开或者使用该可执行文件
