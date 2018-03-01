@@ -35,7 +35,7 @@
 ###7.JavaScript只可以运行在浏览器中吗？
 
 ##2.什么是 Node?
-
+Node是一个JavaScript的运动环境（平台），不是一门语言，也不是JavaScript的框架；
 ###1.[https://nodejs.org/en/]()
 ###2.node是js运行环境基于v8引擎
 特点用事件驱动、无阻塞的io模型
