@@ -300,3 +300,5 @@ Join方法返回一个字符串数组
 	}
 方法的调用
 	test();
+自调用函数
+(function(){alert("hello")})();
