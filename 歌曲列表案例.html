@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.container {
+			margin: 0 auto;
+			width: 850px;
+			border: 1px solid #dad8d8;
+
+			/*height: 100%;*/
+		}
+		.songslist-main, .songslist-header {
+			position: relative;
+			width: 100%;
+			text-align: center;
+		}
+		.songslist-header {
+			height: 30px;
+			border-bottom: 1px solid #dad8d8;
+			line-height: 30px;
+			background-color: #def;
+		}
+
+		.songslist-name {
+			position: absolute;
+			width: 40%;
+			height: 100%;
+			border-right: 1px solid #dad8d8;
+		}
+		.songslist-singer {
+			position: absolute;
+			left: 40%;
+			width: 50%;
+			height: 100%;
+			border-right: 1px solid #dad8d8;
+		}
+		.songslist-option {
+			position: absolute;
+			left: 90%;
+			width: 10%;
+			height: 100%;
+		}
+
+		.songslist-main {
+			background-color: #fff;
+			height: 100%;
+		}
+		.songslist-main .songslist-name{
+			height: 50px;
+			line-height: 50px;
+			border: 0;
+		}
+		.songslist-main .songslist-singer{
+			height: 50px;
+			line-height: 50px;
+			border: 0;
+		}
+		.songslist-single {
+			height: 50px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="songslist-op">
+			<label for="txtAddSName">歌曲名:</label><input type="text" id="txtAddSName" />
+			<label for="txtAddSinger">歌手:</label><input type="text" id="txtAddSinger" />
+			<button id="btnAdd">添加</button>
+			<button id="btnRemove">删除</button>
+		</div>
+
+		<div class="songslist-header">
+			<div class="songslist-name">歌曲名称</div>
+			<div class="songslist-singer">歌手</div>
+			<div class="songslist-option">操作</div>
+		</div>
+
+		<div class="songslist-main" id="c">
+			<div class="songslist-single">
+				<div class="songslist-name">歌曲名称</div>
+				<div class="songslist-singer">歌手</div>
+			</div>
+
+			<div class="songslist-single">
+				<div class="songslist-name">歌曲名称</div>
+				<div class="songslist-singer">歌手</div>
+			</div>
+
+			<div class="songslist-single">
+				<div class="songslist-name">歌曲名称</div>
+				<div class="songslist-singer">歌手</div>
+			</div>
+
+			<div class="songslist-single">
+				<div class="songslist-name">歌曲名称</div>
+				<div class="songslist-singer">歌手</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		// 创建歌曲列表管理的构造函数
+		function SongsManager(config) {
+			// 将传入的歌曲列表 储存起来
+			this.list = config.list || [];
+			this.container = document.getElementById( config.id );
+
+			this.init();
+		}
+
+		SongsManager.prototype = {
+			// 处理 constructor
+			constructor: SongsManager,
+			init: function() {
+				this.render( this.list );
+			},
+
+			// 1 添加歌曲的方法
+			addSong: function addSong(name, singer) {
+				this.list.push({ sName: name, sSinger: singer });
+
+				this.render(this.list);
+			},
+			// 2 查询歌手的方法
+			getSinger: function(name) {
+				var singer = "找不到该歌曲信息！",
+					list = this.list;
+
+				for(var i = 0; i < list.length; i++) {
+					if(list[i].sName === name) {
+						singer = list[i].sSinger;
+						break;
+					}
+				}
+
+				return singer;
+			},
+			// 3 删除歌曲的方法
+			removeSong: function(name) {
+				var list = this.list;
+
+				for(var i = 0; i < list.length; i++) {
+					if(list[i].sName === name) {
+						list.splice(i, 1);
+						break;
+					}
+				}
+
+				this.render(this.list);
+			},
+			// 渲染方法
+			render: function(list) {
+				var list = list || this.list,
+					len = list.length,
+					i = 0;
+				var htmlsArr = [];
+
+				for(; i < len; i++) {
+					htmlsArr.push('<div class="songslist-single">');
+					htmlsArr.push('<div class="songslist-name">'+ list[i].sName +'</div>');
+					htmlsArr.push('<div class="songslist-singer">'+ list[i].sSinger +'</div>');
+					htmlsArr.push('</div>');
+				}
+
+				this.container.innerHTML = htmlsArr.join("");
+			}
+		};
+
+
+		var args = {
+			list: [
+				{sName: "痴心绝对", sSinger: "李圣杰"},
+				{ sName: "南山南",  sSinger: "马頔"}
+			],
+			id: "c"
+		};
+		var s = new SongsManager(args);
+
+		// 添加歌曲
+		document.querySelector("#btnAdd").onclick = function() {
+			var sName = document.querySelector("#txtAddSName").value;
+			var singer = document.querySelector("#txtAddSinger").value;
+
+			if(sName === "" || singer === "") {
+				return;
+			}
+			s.addSong(sName, singer);
+		};
+
+		// 删除歌曲
+		document.querySelector("#btnRemove").onclick = function() {
+			var sName = document.querySelector("#txtAddSName").value;
+
+			if(sName === "") {
+				return;
+			}
+			s.removeSong(sName);
+		};
+	</script>
+</body>
+</html>
