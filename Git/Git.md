@@ -256,3 +256,9 @@ fatal: Unable to create 'E:/workspaceGit/Git/.git/index.lock': File exists.
 解决方法
 rm -f  /.git/index.lock
 或者手动找到E:/workspaceGit/Git/.git/index.lock文件并删除
+#### 忽略特殊文件
+Git工作区的根目录下创建一个特殊的.gitignore文件
+然后把要忽略的文件名填进去
+
+	# Dependency directory
+	node_modules
