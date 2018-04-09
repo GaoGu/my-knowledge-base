@@ -8,10 +8,27 @@
 	用户名和邮箱地址是本地git客户端的一个变量，不随git库而改变。
 	每次commit都会用用户名和邮箱纪录。
 	github的contributions统计就是按邮箱来统计的。
+	
 #### 修改用户名和邮箱地址：
 
 	$ git config --global user.name "username"
 	$ git config --global user.email "email"
+	Git可以配置了一个全局的用户名和邮箱：
+#### Git用户名邮箱的全局配置和单仓库配置
+Git可以配置了一个全局的用户名和邮箱：
+
+	$ git config --global user.name "xxxxx"
+
+	$ git config --global user.email "xxxxx@xx.com"
+
+	$ git config --list
+但是你的项目可能是公司自己搭建的gitlab进行管理的，那就需要单独针对这个项目单独配置用户名和邮箱。
+
+在项目根目录下进行单独配置：
+
+	$ git config user.name "gitlab's Name"
+
+	$ git config user.email "gitlab@xx.com"
 #### 查看用户名和邮箱地址：
 
 	$ git config user.name
