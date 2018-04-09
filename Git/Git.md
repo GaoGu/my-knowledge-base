@@ -39,6 +39,7 @@ Git可以配置了一个全局的用户名和邮箱：
 #### git代理设置（一般用于公司内部网络）
 
 	$ git config --global http.proxy ip:port
+	git config --global http.proxy http://proxy.piccnet.com.cn:3128
 #### 查看代理：
 
 	$ git config http.proxy
